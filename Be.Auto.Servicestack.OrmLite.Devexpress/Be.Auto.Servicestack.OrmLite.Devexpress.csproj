@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>Be.Auto.Servicestack.OrmLite.Devexpress</Title>
+    <Description>This project provides a `DataSourceLoader` class that enables data loading functionality compatible with **ServiceStack ORM Lite** and **DevExtreme** components. This package is designed to simplify the process of retrieving data from ORM Lite database connections and performing operations such as pagination, sorting, and filtering in a way that is compatible with DevExtreme components.
+</Description>
+    <Copyright>Burak ESER</Copyright>
+    <PackageProjectUrl>https://github.com/kingeser/Be.Auto.Servicestack.OrmLite.Devexpress</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/kingeser/Be.Auto.Servicestack.OrmLite.Devexpress</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Devexpress,Servicestack</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="3.0.0" />
+    <PackageReference Include="ServiceStack.Ormlite" Version="8.3.0" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer" Version="8.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
