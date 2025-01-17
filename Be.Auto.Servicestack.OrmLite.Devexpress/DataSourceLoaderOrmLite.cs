@@ -22,7 +22,17 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
         public static LoadResult Load<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con,
             SqlExpression<TEntity> sqlExpression) where TEntity : class, new()
         {
+            return AppyFilters(loadOptionsBase, con, sqlExpression, false);
+        }
+        public static LoadResult LoadInclude<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con,
+            SqlExpression<TEntity> sqlExpression) where TEntity : class, new()
+        {
+            return AppyFilters(loadOptionsBase, con, sqlExpression, true);
+        }
 
+        private static LoadResult AppyFilters<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con,
+            SqlExpression<TEntity> sqlExpression, bool loadSelect = false) where TEntity : class, new()
+        {
             if (loadOptionsBase.IsCountQuery)
             {
                 return new LoadResult()
@@ -85,6 +95,7 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
 
             if (selectFields.Any())
             {
+
                 sqlExpression = sqlExpression.Select(string.Join(",", selectFields));
             }
             else
@@ -111,19 +122,18 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
 
             if (groupFields.Any())
             {
-
                 var result = con.Select(sqlExpression);
 
                 return new LoadResult()
                 {
                     data = DataSourceLoader.Load(result, loadOptionsBase).data,
                     totalCount = Convert.ToInt32(count),
-
+                    groupCount = result.Count
                 };
             }
             else
             {
-                var result = con.Select(sqlExpression);
+                var result = loadSelect ? con.LoadSelect(sqlExpression) : con.Select(sqlExpression);
 
                 return new LoadResult()
                 {
@@ -132,8 +142,6 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
 
                 };
             }
-
         }
-
     }
 }
