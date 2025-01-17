@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Be.Auto.Servicestack.OrmLite.Devexpress/bin/Debug
+/Be.Auto.Servicestack.OrmLite.Devexpress/obj
+/.vs/Be.Auto.Servicestack.OrmLite.Devexpress
