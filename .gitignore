@@ -5,3 +5,7 @@
 /Be.Auto.Servicestack.OrmLite.Devexpress/bin/Debug
 /Be.Auto.Servicestack.OrmLite.Devexpress/obj
 /.vs/Be.Auto.Servicestack.OrmLite.Devexpress
+/.vs
+/Be.Auto.Servicestack.OrmLite.Devexpress/bin/Release
+/Demo/bin
+/Demo/obj
