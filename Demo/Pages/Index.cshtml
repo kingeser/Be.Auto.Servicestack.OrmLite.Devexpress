@@ -3,9 +3,26 @@
 
 <h2 class="content-block">Home</h2>
 
+
+
+@(Html.DevExtreme()
+    .Lookup()
+    .DataSource(d => d
+        .Mvc()
+        .Controller("Employee")
+        .LoadAction("GetCities")
+        .Key("City")
+        )
+    .DisplayExpr("City")
+    .ValueExpr("City")
+    .SearchEnabled(true)
+    .SearchExpr("City")
+    .AccessKey("City")
+)
+
 @(Html.DevExtreme().DataGrid<Employee>()
     .ElementAttr(new { @class = "dx-card wide-card" })
-    .DataSource(d => d.Mvc().Controller("Employee").LoadAction("Get").Key("EmployeeID"))
+    .DataSource(d => d.Mvc().Controller("Employee").LoadAction("GetEmployees").Key("EmployeeID"))
     .ShowBorders(false)
     .FilterRow(f => f.Visible(true))
     .FocusedRowEnabled(true)

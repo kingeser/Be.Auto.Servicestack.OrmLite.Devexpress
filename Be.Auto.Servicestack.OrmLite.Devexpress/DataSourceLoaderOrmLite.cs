@@ -123,7 +123,10 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
             }
             else
             {
+
                 sqlExpression = SortExpression.Compile(sqlExpression, loadOptionsBase);
+
+             
             }
 
 
