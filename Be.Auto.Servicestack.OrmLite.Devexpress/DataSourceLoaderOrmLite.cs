@@ -10,6 +10,7 @@ using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
 using ServiceStack;
 using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.Legacy;
 using ServiceStack.Script;
 using static ServiceStack.OrmLite.Dapper.SqlMapper;
 
@@ -43,7 +44,7 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
 
             var groupFields = new List<string>();
             var selectFields = new List<string>();
-            foreach (var groupingInfo in loadOptionsBase.Group ?? [])
+            foreach (var groupingInfo in (loadOptionsBase.Group ?? []).GroupBy(t=>t.Selector).Select(t=>t.First()))
             {
                 if (string.IsNullOrEmpty(groupingInfo.GroupInterval))
                 {
@@ -78,14 +79,14 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
                         else
                         {
                             groupFields.Add($"{groupingInfo.GroupInterval}({groupingInfo.Selector})");
-                            selectFields.Add($"{groupingInfo.GroupInterval}({groupingInfo.Selector}) AS {groupingInfo.GroupInterval}");
+                            selectFields.Add($"{groupingInfo.GroupInterval}({groupingInfo.Selector}) AS {groupingInfo.Selector}");
                         }
 
                     }
                     else
                     {
                         groupFields.Add($"{groupingInfo.GroupInterval}({groupingInfo.Selector})");
-                        selectFields.Add($"{groupingInfo.GroupInterval}({groupingInfo.Selector}) AS {groupingInfo.GroupInterval}");
+                        selectFields.Add($"{groupingInfo.GroupInterval}({groupingInfo.Selector}) AS {groupingInfo.Selector}");
                     }
 
 
@@ -110,9 +111,20 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
 
             sqlExpression = sqlExpression.Where(whereExpression);
 
-            sqlExpression = groupFields.Count > 0 ? sqlExpression.GroupBy(string.Join(",", groupFields)) : SortExpression.Compile(sqlExpression, loadOptionsBase);
 
-            var count = con.Count(sqlExpression);
+            if (groupFields.Count > 0)
+            {
+                sqlExpression = sqlExpression.GroupBy(string.Join(",", groupFields));
+
+                sqlExpression = loadOptionsBase.Group!.Any(t => t.Desc) ? sqlExpression.OrderByDescending(string.Join(",", groupFields.Distinct())) : sqlExpression.OrderBy(string.Join(",", groupFields.Distinct()));
+            }
+            else
+            {
+                sqlExpression = SortExpression.Compile(sqlExpression, loadOptionsBase);
+            }
+
+
+            var count = con.RowCount(sqlExpression);
 
             if (loadOptionsBase.Skip > 0)
                 sqlExpression = sqlExpression.Skip(loadOptionsBase.Skip);
@@ -120,15 +132,16 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
                 sqlExpression = sqlExpression.Take(loadOptionsBase.Take);
 
 
+
             if (groupFields.Any())
             {
                 var result = con.Select(sqlExpression);
-
+                loadOptionsBase.Filter?.Clear();
+                var loadResult = DataSourceLoader.Load(result, loadOptionsBase);
                 return new LoadResult()
                 {
-                    data = DataSourceLoader.Load(result, loadOptionsBase).data,
-                    totalCount = Convert.ToInt32(count),
-                    groupCount = result.Count
+                    data = loadResult.data,
+                    totalCount = Convert.ToInt32(count)
                 };
             }
             else

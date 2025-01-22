@@ -1,0 +1,42 @@
+@page
+@using Demo.Models
+
+<h2 class="content-block">Home</h2>
+
+@(Html.DevExtreme().DataGrid<Employee>()
+    .ElementAttr(new { @class = "dx-card wide-card" })
+    .DataSource(d => d.Mvc().Controller("Employee").LoadAction("Get").Key("EmployeeID"))
+    .ShowBorders(false)
+    .FilterRow(f => f.Visible(true))
+    .FocusedRowEnabled(true)
+    .RemoteOperations(true)
+    .FilterBuilder(t=>t.Visible(true))
+    .FocusedRowIndex(0)
+    .FilterPanel(t=>t.Visible(true).FilterEnabled(true))
+    .HeaderFilter(t=>t.Visible(true).AllowSelectAll(true).Search(s=>s.Enabled(true).Mode(CollectionSearchMode.Contains)))
+    .ColumnAutoWidth(true)
+    .ColumnHidingEnabled(true)
+    .Columns(columns => {
+        columns.AddFor(m => m.EmployeeID).Visible(false);
+        columns.AddFor(m => m.LastName);
+        columns.AddFor(m => m.FirstName);
+        columns.AddFor(m => m.MiddleInitial);
+        columns.AddFor(m => m.SSN);
+        columns.AddFor(m => m.Address);
+        columns.AddFor(m => m.City);
+        columns.AddFor(m => m.State);    
+        columns.AddFor(m => m.Zip);
+        columns.AddFor(m => m.Phone);
+        columns.AddFor(m => m.Status);
+        columns.AddFor(m => m.Description);
+        columns.AddFor(m => m.Created);
+    })
+    .Paging(p => p.PageSize(10))
+    .Pager(p => p
+        .ShowPageSizeSelector(true)
+        .AllowedPageSizes(new[] { 5, 10, 20,50,100 })
+        .ShowInfo(true)
+        .ShowInfo(true)
+        .ShowNavigationButtons(true)
+        .ShowPageSizeSelector(true)
+    ))
