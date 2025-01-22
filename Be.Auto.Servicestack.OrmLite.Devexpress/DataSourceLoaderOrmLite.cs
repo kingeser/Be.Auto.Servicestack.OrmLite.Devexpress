@@ -44,7 +44,7 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
 
             var groupFields = new List<string>();
             var selectFields = new List<string>();
-            foreach (var groupingInfo in (loadOptionsBase.Group ?? []).GroupBy(t=>t.Selector).Select(t=>t.First()))
+            foreach (var groupingInfo in (loadOptionsBase.Group ?? []))
             {
                 if (string.IsNullOrEmpty(groupingInfo.GroupInterval))
                 {
@@ -93,6 +93,9 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
                 }
 
             }
+
+            selectFields = selectFields.Distinct().ToList();
+            groupFields = groupFields.Distinct().ToList();
 
             if (selectFields.Any())
             {
