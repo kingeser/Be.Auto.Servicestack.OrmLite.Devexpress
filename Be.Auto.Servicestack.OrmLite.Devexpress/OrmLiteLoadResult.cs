@@ -9,5 +9,5 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress;
 
 public class OrmLiteLoadResult<TEntity> : LoadResult where TEntity : class, new()
 {
-    public IEnumerable<TEntity> Result => base.data.Cast<TEntity>();
+    public IEnumerable<TEntity> Result => base.data.OfType<TEntity>();
 }
