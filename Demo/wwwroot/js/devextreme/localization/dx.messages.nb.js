@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.nb.js)
-* Version: 24.1.6
-* Build date: Sat Sep 14 2024
+* Version: 24.2.3
+* Build date: Fri Dec 06 2024
 *
 * Copyright (c) 2012 - 2024 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -11,10 +11,10 @@
 ! function(root, factory) {
     if ("function" === typeof define && define.amd) {
         define((function(require) {
-            factory(require("devextreme/localization"))
+            factory(require("devextreme/common/core/localization"))
         }))
     } else if ("object" === typeof module && module.exports) {
-        factory(require("devextreme/localization"))
+        factory(require("devextreme/common/core/localization"))
     } else {
         factory(DevExpress.localization)
     }
@@ -24,6 +24,7 @@
             Yes: "Ja",
             No: "Nei",
             Cancel: "Avbryt",
+            CheckState: "Check state",
             Close: "Lukke",
             Clear: "Slett",
             Done: "Fullf\xf8rt",
@@ -32,6 +33,8 @@
             Search: "S\xf8k",
             Back: "Tilbake",
             OK: "OK",
+            Today: "I dag",
+            Yesterday: "Yesterday",
             "dxCollectionWidget-noDataText": "Ingen data \xe5 vise",
             "dxDropDownEditor-selectLabel": "Velg",
             "validation-required": "P\xe5krevd",
@@ -64,6 +67,9 @@
             "dxList-listAriaLabel-deletable": "Deletable items",
             "dxListEditDecorator-delete": "Slett",
             "dxListEditDecorator-more": "Mer",
+            "dxList-selectAll-indeterminate": "Half-checked",
+            "dxList-selectAll-checked": "Checked",
+            "dxList-selectAll-notChecked": "Not checked",
             "dxScrollView-pullingDownText": "Dra ned for \xe5 oppdatere...",
             "dxScrollView-pulledDownText": " Slipp for \xe5 oppdatere...",
             "dxScrollView-refreshingText": "Oppdaterer...",
@@ -159,10 +165,11 @@
             "dxDataGrid-summarySum": "Sum: {0}",
             "dxDataGrid-summarySumOtherColumn": "Summen av {1} er {0}",
             "dxDataGrid-summaryCount": "Telling: {0}",
-            "dxDataGrid-columnFixingFix": "L\xe5s",
-            "dxDataGrid-columnFixingUnfix": "L\xe5s opp",
-            "dxDataGrid-columnFixingLeftPosition": "Til venstre",
-            "dxDataGrid-columnFixingRightPosition": "Til h\xf8yre",
+            "dxDataGrid-columnFixingFix": "Set Fixed Position",
+            "dxDataGrid-columnFixingUnfix": "Unfix",
+            "dxDataGrid-columnFixingLeftPosition": "Left",
+            "dxDataGrid-columnFixingRightPosition": "Right",
+            "dxDataGrid-columnFixingStickyPosition": "Sticky",
             "dxDataGrid-exportTo": "Eksport\xe9r",
             "dxDataGrid-exportToExcel": "Eksport\xe9r til Excel fil",
             "dxDataGrid-exporting": "Eksport\xe9rer...",
@@ -202,6 +209,7 @@
             "dxDataGrid-filterPanelFilterEnabledHint": "Aktiv\xe9r filter",
             "dxDataGrid-masterDetail": "Cell with details",
             "dxTreeList-ariaTreeList": "Tree list with {0} rows and {1} columns",
+            "dxTreeList-ariaExpandableInstruction": "Press Ctrl + right arrow to expand the focused node and Ctrl + left arrow to collapse it",
             "dxTreeList-ariaSearchInGrid": "Search in the tree list",
             "dxTreeList-ariaToolbar": "Tree list toolbar",
             "dxTreeList-editingAddRowToNode": "Legg til",
@@ -210,11 +218,21 @@
             "dxPager-pageSize": "Items per page: {0}",
             "dxPager-pageSizesAllText": "Alle",
             "dxPager-page": "Page {0}",
-            "dxPager-prevPage": "Previous Page",
-            "dxPager-nextPage": "Next Page",
-            "dxPager-ariaLabel": "Page Navigation",
+            "dxPager-prevPage": "Previous page",
+            "dxPager-nextPage": "Next page",
+            "dxPager-ariaLabel": "Page navigation",
             "dxPager-ariaPageSize": "Page size",
             "dxPager-ariaPageNumber": "Page number",
+            "dxPagination-infoText": "Side {0} av {1} ({2} punkter)",
+            "dxPagination-pagesCountText": "av",
+            "dxPagination-pageSize": "Items per page: {0}",
+            "dxPagination-pageSizesAllText": "Alle",
+            "dxPagination-page": "Page {0}",
+            "dxPagination-prevPage": "Previous page",
+            "dxPagination-nextPage": "Next page",
+            "dxPagination-ariaLabel": "Page navigation",
+            "dxPagination-ariaPageSize": "Page size",
+            "dxPagination-ariaPageNumber": "Page number",
             "dxPivotGrid-grandTotal": "Totalsum",
             "dxPivotGrid-total": "{0} Totalt",
             "dxPivotGrid-fieldChooserTitle": "Feltvelger",
@@ -234,11 +252,17 @@
             "dxPivotGrid-dataFieldArea": "Slipp datafelter her",
             "dxPivotGrid-rowFieldArea": "Slipp radfelter her",
             "dxPivotGrid-filterFieldArea": "Slipp filterfelter her",
+            "dxScheduler-ariaLabel": "Scheduler. {0} view",
+            "dxScheduler-appointmentAriaLabel-group": "Group: {0}",
+            "dxScheduler-appointmentAriaLabel-recurring": "Recurring appointment",
+            "dxScheduler-appointmentListAriaLabel": "Appointment list",
             "dxScheduler-editorLabelTitle": "Emne",
             "dxScheduler-editorLabelStartDate": "Startdato",
             "dxScheduler-editorLabelEndDate": "Sluttdato",
             "dxScheduler-editorLabelDescription": "Beskrivelse",
             "dxScheduler-editorLabelRecurrence": "Gjenta",
+            "dxScheduler-navigationPrevious": "Previous page",
+            "dxScheduler-navigationNext": "Next page",
             "dxScheduler-openAppointment": "\xc5pen avtale",
             "dxScheduler-recurrenceNever": "Aldri",
             "dxScheduler-recurrenceMinutely": "Hvert minutt",
@@ -270,6 +294,7 @@
             "dxScheduler-recurrenceRepeatOnDate": "p\xe5 dato",
             "dxScheduler-recurrenceRepeatCount": "tilfelle(r)",
             "dxScheduler-allDay": "Hele dagen",
+            "dxScheduler-ariaEditForm": "Edit form",
             "dxScheduler-confirmRecurrenceEditTitle": "Edit Recurring Appointment",
             "dxScheduler-confirmRecurrenceDeleteTitle": "Delete Recurring Appointment",
             "dxScheduler-confirmRecurrenceEditMessage": "Vil du kun endre denne avtalen eller hele serien?",
@@ -299,7 +324,24 @@
             "dxCalendar-captionDecadeLabel": "Decade selection",
             "dxCalendar-captionCenturyLabel": "Century selection",
             "dxCalendar-selectedDate": "The selected date is {0}",
+            "dxCalendar-selectedDates": "The selected dates",
             "dxCalendar-selectedDateRange": "The selected date range is from {0} to {1}",
+            "dxCalendar-selectedMultipleDateRange": "from {0} to {1}",
+            "dxCalendar-selectedDateRangeCount": "There are {0} selected date ranges",
+            "dxCalendar-readOnlyLabel": "Read-only calendar",
+            "dxAvatar-defaultImageAlt": "Avatar",
+            "dxChat-elementAriaLabel": "Chat",
+            "dxChat-textareaPlaceholder": "Type a message",
+            "dxChat-sendButtonAriaLabel": "Send",
+            "dxChat-defaultUserName": "Unknown User",
+            "dxChat-messageListAriaLabel": "Message list",
+            "dxChat-alertListAriaLabel": "Error list",
+            "dxChat-emptyListMessage": "There are no messages in this chat",
+            "dxChat-emptyListPrompt": "Write your first message",
+            "dxChat-typingMessageSingleUser": "{0} is typing...",
+            "dxChat-typingMessageTwoUsers": "{0} and {1} are typing...",
+            "dxChat-typingMessageThreeUsers": "{0}, {1} and {2} are typing...",
+            "dxChat-typingMessageMultipleUsers": "{0} and others are typing...",
             "dxColorView-ariaRed": "R\xf8d",
             "dxColorView-ariaGreen": "Gr\xf8nn",
             "dxColorView-ariaBlue": "Bl\xe5",
@@ -334,6 +376,15 @@
             "dxFilterBuilder-filterOperationBetween": "Er mellom",
             "dxFilterBuilder-filterOperationAnyOf": "Er noen av",
             "dxFilterBuilder-filterOperationNoneOf": "Er ingen av",
+            "dxFilterBuilder-filterAriaRootElement": "Filter builder",
+            "dxFilterBuilder-filterAriaGroupLevel": "Level {0}",
+            "dxFilterBuilder-filterAriaGroupItem": "Group item",
+            "dxFilterBuilder-filterAriaOperationButton": "Operation",
+            "dxFilterBuilder-filterAriaAddButton": "Add",
+            "dxFilterBuilder-filterAriaRemoveButton": "Remove {0}",
+            "dxFilterBuilder-filterAriaItemField": "Item field",
+            "dxFilterBuilder-filterAriaItemOperation": "Item operation",
+            "dxFilterBuilder-filterAriaItemValue": "Item value",
             "dxHtmlEditor-dialogColorCaption": "Skift fontfarge",
             "dxHtmlEditor-dialogBackgroundCaption": "Skift bakgrunnsfarge",
             "dxHtmlEditor-dialogLinkCaption": "Legg til link",

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -20,25 +21,26 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
     {
         public static readonly Assembly DevExtremeAsssembly = typeof(LoadResult).Assembly;
 
-        public static LoadResult Load<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con,
-            SqlExpression<TEntity> sqlExpression) where TEntity : class, new()
+        public static OrmLiteLoadResult<TEntity> Load<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con, SqlExpression<TEntity> sqlExpression) where TEntity : class, new()
+
         {
             return AppyFilters(loadOptionsBase, con, sqlExpression, false);
         }
-        public static LoadResult LoadInclude<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con,
-            SqlExpression<TEntity> sqlExpression) where TEntity : class, new()
+        public static OrmLiteLoadResult<TEntity> LoadInclude<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con, SqlExpression<TEntity> sqlExpression) where TEntity : class, new()
+
         {
             return AppyFilters(loadOptionsBase, con, sqlExpression, true);
         }
 
-        private static LoadResult AppyFilters<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con,
-            SqlExpression<TEntity> sqlExpression, bool loadSelect = false) where TEntity : class, new()
+        private static OrmLiteLoadResult<TEntity> AppyFilters<TEntity>(DataSourceLoadOptionsBase loadOptionsBase, IDbConnection con, SqlExpression<TEntity> sqlExpression, bool loadSelect = false) where TEntity : class, new()
+
         {
             if (loadOptionsBase.IsCountQuery)
             {
-                return new LoadResult()
+                return new OrmLiteLoadResult<TEntity>()
                 {
-                    totalCount = Convert.ToInt32(con.Count(sqlExpression))
+                    totalCount = Convert.ToInt32(con.Count(sqlExpression)),
+                  
                 };
             }
 
@@ -123,10 +125,8 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
             }
             else
             {
-
                 sqlExpression = SortExpression.Compile(sqlExpression, loadOptionsBase);
 
-             
             }
 
 
@@ -138,27 +138,27 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
                 sqlExpression = sqlExpression.Take(loadOptionsBase.Take);
 
 
-
             if (groupFields.Any())
             {
-                var result = con.Select(sqlExpression);
+                var result = loadSelect ? con.LoadSelect(sqlExpression) : con.Select(sqlExpression);
                 loadOptionsBase.Filter?.Clear();
                 var loadResult = DataSourceLoader.Load(result, loadOptionsBase);
-                return new LoadResult()
+                return new OrmLiteLoadResult<TEntity>()
                 {
                     data = loadResult.data,
                     totalCount = Convert.ToInt32(count)
+                  
                 };
             }
             else
             {
                 var result = loadSelect ? con.LoadSelect(sqlExpression) : con.Select(sqlExpression);
 
-                return new LoadResult()
+                return new OrmLiteLoadResult<TEntity>()
                 {
                     data = result,
-                    totalCount = Convert.ToInt32(count),
-
+                    totalCount = Convert.ToInt32(count)
+                   
                 };
             }
         }

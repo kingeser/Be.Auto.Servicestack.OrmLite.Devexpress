@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.cs.js)
-* Version: 24.1.6
-* Build date: Sat Sep 14 2024
+* Version: 24.2.3
+* Build date: Fri Dec 06 2024
 *
 * Copyright (c) 2012 - 2024 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -11,10 +11,10 @@
 ! function(root, factory) {
     if ("function" === typeof define && define.amd) {
         define((function(require) {
-            factory(require("devextreme/localization"))
+            factory(require("devextreme/common/core/localization"))
         }))
     } else if ("object" === typeof module && module.exports) {
-        factory(require("devextreme/localization"))
+        factory(require("devextreme/common/core/localization"))
     } else {
         factory(DevExpress.localization)
     }
@@ -24,6 +24,7 @@
             Yes: "Ano",
             No: "Ne",
             Cancel: "Zru\u0161it",
+            CheckState: "Check state",
             Close: "Zav\u0159\xedt",
             Clear: "Smazat",
             Done: "Hotovo",
@@ -32,6 +33,8 @@
             Search: "Hledat",
             Back: "Zp\u011bt",
             OK: "OK",
+            Today: "Dnes",
+            Yesterday: "Yesterday",
             "dxCollectionWidget-noDataText": "\u017d\xe1dn\xe1 data k zobrazen\xed",
             "dxDropDownEditor-selectLabel": "V\xfdb\u011br",
             "validation-required": "povinn\xe9",
@@ -64,6 +67,9 @@
             "dxList-listAriaLabel-deletable": "Deletable items",
             "dxListEditDecorator-delete": "Smazat",
             "dxListEditDecorator-more": "V\xedce",
+            "dxList-selectAll-indeterminate": "Half-checked",
+            "dxList-selectAll-checked": "Checked",
+            "dxList-selectAll-notChecked": "Not checked",
             "dxScrollView-pullingDownText": "St\xe1hn\u011bte dol\u016f pro obnoven\xed...",
             "dxScrollView-pulledDownText": "Uvoln\u011bte pro obnoven\xed...",
             "dxScrollView-refreshingText": "Obnovuji...",
@@ -159,10 +165,11 @@
             "dxDataGrid-summarySum": "Suma: {0}",
             "dxDataGrid-summarySumOtherColumn": "Suma {1} je {0}",
             "dxDataGrid-summaryCount": "Po\u010det: {0}",
-            "dxDataGrid-columnFixingFix": "Uchytit",
-            "dxDataGrid-columnFixingUnfix": "Uvolnit",
-            "dxDataGrid-columnFixingLeftPosition": "Vlevo",
-            "dxDataGrid-columnFixingRightPosition": "Vpravo",
+            "dxDataGrid-columnFixingFix": "Set Fixed Position",
+            "dxDataGrid-columnFixingUnfix": "Unfix",
+            "dxDataGrid-columnFixingLeftPosition": "Left",
+            "dxDataGrid-columnFixingRightPosition": "Right",
+            "dxDataGrid-columnFixingStickyPosition": "Sticky",
             "dxDataGrid-exportTo": "Export",
             "dxDataGrid-exportToExcel": "Export do se\u0161itu Excel",
             "dxDataGrid-exporting": "Export...",
@@ -202,6 +209,7 @@
             "dxDataGrid-filterPanelFilterEnabledHint": "Povolit Filtr",
             "dxDataGrid-masterDetail": "Cell with details",
             "dxTreeList-ariaTreeList": "Tree list with {0} rows and {1} columns",
+            "dxTreeList-ariaExpandableInstruction": "Press Ctrl + right arrow to expand the focused node and Ctrl + left arrow to collapse it",
             "dxTreeList-ariaSearchInGrid": "Search in the tree list",
             "dxTreeList-ariaToolbar": "Tree list toolbar",
             "dxTreeList-editingAddRowToNode": "P\u0159idat",
@@ -210,11 +218,21 @@
             "dxPager-pageSize": "Items per page: {0}",
             "dxPager-pageSizesAllText": "V\u0161e",
             "dxPager-page": "Page {0}",
-            "dxPager-prevPage": "Previous Page",
-            "dxPager-nextPage": "Next Page",
-            "dxPager-ariaLabel": "Page Navigation",
+            "dxPager-prevPage": "Previous page",
+            "dxPager-nextPage": "Next page",
+            "dxPager-ariaLabel": "Page navigation",
             "dxPager-ariaPageSize": "Page size",
             "dxPager-ariaPageNumber": "Page number",
+            "dxPagination-infoText": "Strana {0} ze {1} ({2} polo\u017eek)",
+            "dxPagination-pagesCountText": "ze",
+            "dxPagination-pageSize": "Items per page: {0}",
+            "dxPagination-pageSizesAllText": "V\u0161e",
+            "dxPagination-page": "Page {0}",
+            "dxPagination-prevPage": "Previous page",
+            "dxPagination-nextPage": "Next page",
+            "dxPagination-ariaLabel": "Page navigation",
+            "dxPagination-ariaPageSize": "Page size",
+            "dxPagination-ariaPageNumber": "Page number",
             "dxPivotGrid-grandTotal": "Celkem",
             "dxPivotGrid-total": "{0} Celkem",
             "dxPivotGrid-fieldChooserTitle": "V\xfdb\u011br pole",
@@ -234,11 +252,17 @@
             "dxPivotGrid-dataFieldArea": "Zde vlo\u017ete pole dat",
             "dxPivotGrid-rowFieldArea": "Zde vlo\u017ete pole \u0159\xe1dk\u016f",
             "dxPivotGrid-filterFieldArea": "Zde vlo\u017ete filtr pole",
+            "dxScheduler-ariaLabel": "Scheduler. {0} view",
+            "dxScheduler-appointmentAriaLabel-group": "Group: {0}",
+            "dxScheduler-appointmentAriaLabel-recurring": "Recurring appointment",
+            "dxScheduler-appointmentListAriaLabel": "Appointment list",
             "dxScheduler-editorLabelTitle": "P\u0159edm\u011bt",
             "dxScheduler-editorLabelStartDate": "Po\u010d\xe1te\u010dn\xed datum",
             "dxScheduler-editorLabelEndDate": "Koncov\xe9 datum",
             "dxScheduler-editorLabelDescription": "Popis",
             "dxScheduler-editorLabelRecurrence": "Opakovat",
+            "dxScheduler-navigationPrevious": "Previous page",
+            "dxScheduler-navigationNext": "Next page",
             "dxScheduler-openAppointment": "Otev\u0159\xedt sch\u016fzku",
             "dxScheduler-recurrenceNever": "Nikdy",
             "dxScheduler-recurrenceMinutely": "Minutov\u011b",
@@ -270,6 +294,7 @@
             "dxScheduler-recurrenceRepeatOnDate": "na den",
             "dxScheduler-recurrenceRepeatCount": "v\xfdskyt\u016f",
             "dxScheduler-allDay": "Cel\xfd den",
+            "dxScheduler-ariaEditForm": "Edit form",
             "dxScheduler-confirmRecurrenceEditTitle": "Edit Recurring Appointment",
             "dxScheduler-confirmRecurrenceDeleteTitle": "Delete Recurring Appointment",
             "dxScheduler-confirmRecurrenceEditMessage": "Chcete upravit pouze tuto sch\u016fzku nebo celou s\xe9rii?",
@@ -299,7 +324,24 @@
             "dxCalendar-captionDecadeLabel": "Decade selection",
             "dxCalendar-captionCenturyLabel": "Century selection",
             "dxCalendar-selectedDate": "The selected date is {0}",
+            "dxCalendar-selectedDates": "The selected dates",
             "dxCalendar-selectedDateRange": "The selected date range is from {0} to {1}",
+            "dxCalendar-selectedMultipleDateRange": "from {0} to {1}",
+            "dxCalendar-selectedDateRangeCount": "There are {0} selected date ranges",
+            "dxCalendar-readOnlyLabel": "Read-only calendar",
+            "dxAvatar-defaultImageAlt": "Avatar",
+            "dxChat-elementAriaLabel": "Chat",
+            "dxChat-textareaPlaceholder": "Type a message",
+            "dxChat-sendButtonAriaLabel": "Send",
+            "dxChat-defaultUserName": "Unknown User",
+            "dxChat-messageListAriaLabel": "Message list",
+            "dxChat-alertListAriaLabel": "Error list",
+            "dxChat-emptyListMessage": "There are no messages in this chat",
+            "dxChat-emptyListPrompt": "Write your first message",
+            "dxChat-typingMessageSingleUser": "{0} is typing...",
+            "dxChat-typingMessageTwoUsers": "{0} and {1} are typing...",
+            "dxChat-typingMessageThreeUsers": "{0}, {1} and {2} are typing...",
+            "dxChat-typingMessageMultipleUsers": "{0} and others are typing...",
             "dxColorView-ariaRed": "\u010cerven\xe1",
             "dxColorView-ariaGreen": "Zelen\xe1",
             "dxColorView-ariaBlue": "Modr\xe1",
@@ -334,6 +376,15 @@
             "dxFilterBuilder-filterOperationBetween": "Mezi",
             "dxFilterBuilder-filterOperationAnyOf": "Libovoln\xfd z",
             "dxFilterBuilder-filterOperationNoneOf": "\u017d\xe1dn\xfd z",
+            "dxFilterBuilder-filterAriaRootElement": "Filter builder",
+            "dxFilterBuilder-filterAriaGroupLevel": "Level {0}",
+            "dxFilterBuilder-filterAriaGroupItem": "Group item",
+            "dxFilterBuilder-filterAriaOperationButton": "Operation",
+            "dxFilterBuilder-filterAriaAddButton": "Add",
+            "dxFilterBuilder-filterAriaRemoveButton": "Remove {0}",
+            "dxFilterBuilder-filterAriaItemField": "Item field",
+            "dxFilterBuilder-filterAriaItemOperation": "Item operation",
+            "dxFilterBuilder-filterAriaItemValue": "Item value",
             "dxHtmlEditor-dialogColorCaption": "Zm\u011bna barvy p\xedsma",
             "dxHtmlEditor-dialogBackgroundCaption": "Zm\u011bna barvy pozad\xed",
             "dxHtmlEditor-dialogLinkCaption": "Vlo\u017eit odkaz",

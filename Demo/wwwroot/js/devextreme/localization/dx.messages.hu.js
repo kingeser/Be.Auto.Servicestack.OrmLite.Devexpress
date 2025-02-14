@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.hu.js)
-* Version: 24.1.6
-* Build date: Sat Sep 14 2024
+* Version: 24.2.3
+* Build date: Fri Dec 06 2024
 *
 * Copyright (c) 2012 - 2024 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -11,10 +11,10 @@
 ! function(root, factory) {
     if ("function" === typeof define && define.amd) {
         define((function(require) {
-            factory(require("devextreme/localization"))
+            factory(require("devextreme/common/core/localization"))
         }))
     } else if ("object" === typeof module && module.exports) {
-        factory(require("devextreme/localization"))
+        factory(require("devextreme/common/core/localization"))
     } else {
         factory(DevExpress.localization)
     }
@@ -24,6 +24,7 @@
             Yes: "Igen",
             No: "Nem",
             Cancel: "M\xe9gse",
+            CheckState: "Check state",
             Close: "Bez\xe1r\xe1s",
             Clear: "T\xf6rl\xe9s",
             Done: "K\xe9sz",
@@ -32,6 +33,8 @@
             Search: "Keres\xe9s",
             Back: "Vissza",
             OK: "OK",
+            Today: "Ma",
+            Yesterday: "Yesterday",
             "dxCollectionWidget-noDataText": "Nincs megjelen\xedthet\u0151 adat",
             "dxDropDownEditor-selectLabel": "V\xe1laszt\xe1s",
             "validation-required": "K\xf6telez\u0151",
@@ -64,6 +67,9 @@
             "dxList-listAriaLabel-deletable": "Deletable items",
             "dxListEditDecorator-delete": "T\xf6rl\xe9s",
             "dxListEditDecorator-more": "T\xf6bb",
+            "dxList-selectAll-indeterminate": "Half-checked",
+            "dxList-selectAll-checked": "Checked",
+            "dxList-selectAll-notChecked": "Not checked",
             "dxScrollView-pullingDownText": "H\xfazza le a friss\xedt\xe9shez...",
             "dxScrollView-pulledDownText": "Engedje el a friss\xedt\xe9shez...",
             "dxScrollView-refreshingText": "Friss\xedt\xe9s...",
@@ -159,10 +165,11 @@
             "dxDataGrid-summarySum": "\xd6sszeg: {0}",
             "dxDataGrid-summarySumOtherColumn": "{1} \xf6sszege: {0}",
             "dxDataGrid-summaryCount": "Darabsz\xe1m: {0}",
-            "dxDataGrid-columnFixingFix": "R\xf6gz\xedt\xe9s",
-            "dxDataGrid-columnFixingUnfix": "Felold\xe1s",
-            "dxDataGrid-columnFixingLeftPosition": "Balra",
-            "dxDataGrid-columnFixingRightPosition": "Jobbra",
+            "dxDataGrid-columnFixingFix": "Set Fixed Position",
+            "dxDataGrid-columnFixingUnfix": "Unfix",
+            "dxDataGrid-columnFixingLeftPosition": "Left",
+            "dxDataGrid-columnFixingRightPosition": "Right",
+            "dxDataGrid-columnFixingStickyPosition": "Sticky",
             "dxDataGrid-exportTo": "Export\xe1l\xe1s",
             "dxDataGrid-exportToExcel": "Export\xe1l\xe1s Excel f\xe1jlba",
             "dxDataGrid-exporting": "Export\xe1l\xe1s...",
@@ -202,6 +209,7 @@
             "dxDataGrid-filterPanelFilterEnabledHint": "Sz\u0171r\u0151 enged\xe9lyez\xe9se",
             "dxDataGrid-masterDetail": "Cell with details",
             "dxTreeList-ariaTreeList": "Tree list with {0} rows and {1} columns",
+            "dxTreeList-ariaExpandableInstruction": "Press Ctrl + right arrow to expand the focused node and Ctrl + left arrow to collapse it",
             "dxTreeList-ariaSearchInGrid": "Search in the tree list",
             "dxTreeList-ariaToolbar": "Tree list toolbar",
             "dxTreeList-editingAddRowToNode": "Hozz\xe1ad\xe1s",
@@ -210,11 +218,21 @@
             "dxPager-pageSize": "Items per page: {0}",
             "dxPager-pageSizesAllText": "Mind",
             "dxPager-page": "Page {0}",
-            "dxPager-prevPage": "Previous Page",
-            "dxPager-nextPage": "Next Page",
-            "dxPager-ariaLabel": "Page Navigation",
+            "dxPager-prevPage": "Previous page",
+            "dxPager-nextPage": "Next page",
+            "dxPager-ariaLabel": "Page navigation",
             "dxPager-ariaPageSize": "Page size",
             "dxPager-ariaPageNumber": "Page number",
+            "dxPagination-infoText": "Oldal: {0}/{1} ({2} elem)",
+            "dxPagination-pagesCountText": "/",
+            "dxPagination-pageSize": "Items per page: {0}",
+            "dxPagination-pageSizesAllText": "Mind",
+            "dxPagination-page": "Page {0}",
+            "dxPagination-prevPage": "Previous page",
+            "dxPagination-nextPage": "Next page",
+            "dxPagination-ariaLabel": "Page navigation",
+            "dxPagination-ariaPageSize": "Page size",
+            "dxPagination-ariaPageNumber": "Page number",
             "dxPivotGrid-grandTotal": "Teljes \xf6sszeg",
             "dxPivotGrid-total": "{0} \xd6sszeg",
             "dxPivotGrid-fieldChooserTitle": "Mez\u0151v\xe1laszt\xf3",
@@ -234,11 +252,17 @@
             "dxPivotGrid-dataFieldArea": "H\xfazza az adatmez\u0151ket ide",
             "dxPivotGrid-rowFieldArea": "H\xfazza a sormez\u0151ket ide",
             "dxPivotGrid-filterFieldArea": "H\xfazza a sz\u0171r\u0151mez\u0151ket ide",
+            "dxScheduler-ariaLabel": "Scheduler. {0} view",
+            "dxScheduler-appointmentAriaLabel-group": "Group: {0}",
+            "dxScheduler-appointmentAriaLabel-recurring": "Recurring appointment",
+            "dxScheduler-appointmentListAriaLabel": "Appointment list",
             "dxScheduler-editorLabelTitle": "T\xe1rgy",
             "dxScheduler-editorLabelStartDate": "Kezd\xe9s d\xe1tuma",
             "dxScheduler-editorLabelEndDate": "Befejez\xe9s d\xe1tuma",
             "dxScheduler-editorLabelDescription": "Le\xedr\xe1s",
             "dxScheduler-editorLabelRecurrence": "Ism\xe9tl\u0151d\xe9s",
+            "dxScheduler-navigationPrevious": "Previous page",
+            "dxScheduler-navigationNext": "Next page",
             "dxScheduler-openAppointment": "Tal\xe1lkoz\xf3 megnyit\xe1sa",
             "dxScheduler-recurrenceNever": "Soha",
             "dxScheduler-recurrenceMinutely": "Percenk\xe9nt",
@@ -270,6 +294,7 @@
             "dxScheduler-recurrenceRepeatOnDate": "d\xe1tumon",
             "dxScheduler-recurrenceRepeatCount": "el\u0151fordul\xe1s(ok)",
             "dxScheduler-allDay": "Eg\xe9sz nap",
+            "dxScheduler-ariaEditForm": "Edit form",
             "dxScheduler-confirmRecurrenceEditTitle": "Edit Recurring Appointment",
             "dxScheduler-confirmRecurrenceDeleteTitle": "Delete Recurring Appointment",
             "dxScheduler-confirmRecurrenceEditMessage": "Csak ezt az alkalmat szeretn\xe9 szerkeszteni, vagy az \xf6sszes ism\xe9tl\u0151d\xe9st?",
@@ -299,7 +324,24 @@
             "dxCalendar-captionDecadeLabel": "Decade selection",
             "dxCalendar-captionCenturyLabel": "Century selection",
             "dxCalendar-selectedDate": "The selected date is {0}",
+            "dxCalendar-selectedDates": "The selected dates",
             "dxCalendar-selectedDateRange": "The selected date range is from {0} to {1}",
+            "dxCalendar-selectedMultipleDateRange": "from {0} to {1}",
+            "dxCalendar-selectedDateRangeCount": "There are {0} selected date ranges",
+            "dxCalendar-readOnlyLabel": "Read-only calendar",
+            "dxAvatar-defaultImageAlt": "Avatar",
+            "dxChat-elementAriaLabel": "Chat",
+            "dxChat-textareaPlaceholder": "Type a message",
+            "dxChat-sendButtonAriaLabel": "Send",
+            "dxChat-defaultUserName": "Unknown User",
+            "dxChat-messageListAriaLabel": "Message list",
+            "dxChat-alertListAriaLabel": "Error list",
+            "dxChat-emptyListMessage": "There are no messages in this chat",
+            "dxChat-emptyListPrompt": "Write your first message",
+            "dxChat-typingMessageSingleUser": "{0} is typing...",
+            "dxChat-typingMessageTwoUsers": "{0} and {1} are typing...",
+            "dxChat-typingMessageThreeUsers": "{0}, {1} and {2} are typing...",
+            "dxChat-typingMessageMultipleUsers": "{0} and others are typing...",
             "dxColorView-ariaRed": "Piros",
             "dxColorView-ariaGreen": "Z\xf6ld",
             "dxColorView-ariaBlue": "K\xe9k",
@@ -334,6 +376,15 @@
             "dxFilterBuilder-filterOperationBetween": "K\xf6z\xf6tt",
             "dxFilterBuilder-filterOperationAnyOf": "Valamelyik",
             "dxFilterBuilder-filterOperationNoneOf": "Egyik sem",
+            "dxFilterBuilder-filterAriaRootElement": "Filter builder",
+            "dxFilterBuilder-filterAriaGroupLevel": "Level {0}",
+            "dxFilterBuilder-filterAriaGroupItem": "Group item",
+            "dxFilterBuilder-filterAriaOperationButton": "Operation",
+            "dxFilterBuilder-filterAriaAddButton": "Add",
+            "dxFilterBuilder-filterAriaRemoveButton": "Remove {0}",
+            "dxFilterBuilder-filterAriaItemField": "Item field",
+            "dxFilterBuilder-filterAriaItemOperation": "Item operation",
+            "dxFilterBuilder-filterAriaItemValue": "Item value",
             "dxHtmlEditor-dialogColorCaption": "Bet\u0171sz\xedn v\xe1laszt\xe1s",
             "dxHtmlEditor-dialogBackgroundCaption": "H\xe1tt\xe9rsz\xedn v\xe1laszt\xe1s",
             "dxHtmlEditor-dialogLinkCaption": "Link hozz\xe1ad\xe1sa",

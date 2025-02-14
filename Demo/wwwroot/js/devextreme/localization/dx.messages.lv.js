@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.lv.js)
-* Version: 24.1.6
-* Build date: Sat Sep 14 2024
+* Version: 24.2.3
+* Build date: Fri Dec 06 2024
 *
 * Copyright (c) 2012 - 2024 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -11,10 +11,10 @@
 ! function(root, factory) {
     if ("function" === typeof define && define.amd) {
         define((function(require) {
-            factory(require("devextreme/localization"))
+            factory(require("devextreme/common/core/localization"))
         }))
     } else if ("object" === typeof module && module.exports) {
-        factory(require("devextreme/localization"))
+        factory(require("devextreme/common/core/localization"))
     } else {
         factory(DevExpress.localization)
     }
@@ -24,6 +24,7 @@
             Yes: "J\u0101",
             No: "N\u0113",
             Cancel: "Atcelt",
+            CheckState: "Check state",
             Close: "Aizv\u0113rt",
             Clear: "Not\u012br\u012bt",
             Done: "Gatavs",
@@ -32,6 +33,8 @@
             Search: "Mekl\u0113t",
             Back: "Atpaka\u013c",
             OK: "OK",
+            Today: "\u0160odien",
+            Yesterday: "Yesterday",
             "dxCollectionWidget-noDataText": "Nav datu ko att\u0113lot",
             "dxDropDownEditor-selectLabel": "Izv\u0113l\u0113ties",
             "validation-required": "Oblig\u0101ts",
@@ -64,6 +67,9 @@
             "dxList-listAriaLabel-deletable": "Deletable items",
             "dxListEditDecorator-delete": "Dz\u0113st",
             "dxListEditDecorator-more": "Vair\u0101k",
+            "dxList-selectAll-indeterminate": "Half-checked",
+            "dxList-selectAll-checked": "Checked",
+            "dxList-selectAll-notChecked": "Not checked",
             "dxScrollView-pullingDownText": "Vilkt lej\u0101 lai atjaunotu...",
             "dxScrollView-pulledDownText": "Atlaist lai atjaunotu...",
             "dxScrollView-refreshingText": "Atjauno...",
@@ -159,10 +165,11 @@
             "dxDataGrid-summarySum": "Sum: {0}",
             "dxDataGrid-summarySumOtherColumn": "Sum of {1} is {0}",
             "dxDataGrid-summaryCount": "Skaits: {0}",
-            "dxDataGrid-columnFixingFix": "Fiks\u0113t",
-            "dxDataGrid-columnFixingUnfix": "Atfiks\u0113t",
-            "dxDataGrid-columnFixingLeftPosition": "Pa kreisi",
-            "dxDataGrid-columnFixingRightPosition": "Pa labi",
+            "dxDataGrid-columnFixingFix": "Set Fixed Position",
+            "dxDataGrid-columnFixingUnfix": "Unfix",
+            "dxDataGrid-columnFixingLeftPosition": "Left",
+            "dxDataGrid-columnFixingRightPosition": "Right",
+            "dxDataGrid-columnFixingStickyPosition": "Sticky",
             "dxDataGrid-exportTo": "Eksport\u0113t",
             "dxDataGrid-exportToExcel": "Eksport\u0113t uz Excel failu",
             "dxDataGrid-exporting": "Eksport\u0113...",
@@ -202,6 +209,7 @@
             "dxDataGrid-filterPanelFilterEnabledHint": "Iesp\u0113jot filtru",
             "dxDataGrid-masterDetail": "Cell with details",
             "dxTreeList-ariaTreeList": "Tree list with {0} rows and {1} columns",
+            "dxTreeList-ariaExpandableInstruction": "Press Ctrl + right arrow to expand the focused node and Ctrl + left arrow to collapse it",
             "dxTreeList-ariaSearchInGrid": "Mekl\u0113t kok\u0101",
             "dxTreeList-ariaToolbar": "Koka r\u012bkjosla",
             "dxTreeList-editingAddRowToNode": "Pievienot",
@@ -215,6 +223,16 @@
             "dxPager-ariaLabel": "Lapu Navig\u0101cija",
             "dxPager-ariaPageSize": "Lapas izm\u0113rs",
             "dxPager-ariaPageNumber": "Lapas numurs",
+            "dxPagination-infoText": "Lapa {0} no {1} ({2} rindas)",
+            "dxPagination-pagesCountText": "no",
+            "dxPagination-pageSize": "Rindas lap\u0101: {0}",
+            "dxPagination-pageSizesAllText": "Viss",
+            "dxPagination-page": "Lapa {0}",
+            "dxPagination-prevPage": "Iepriek\u0161\u0113j\u0101 Lapa",
+            "dxPagination-nextPage": "N\u0101kam\u0101 Lapa",
+            "dxPagination-ariaLabel": "Lapu Navig\u0101cija",
+            "dxPagination-ariaPageSize": "Lapas izm\u0113rs",
+            "dxPagination-ariaPageNumber": "Lapas numurs",
             "dxPivotGrid-grandTotal": "Kopsumm\u0101",
             "dxPivotGrid-total": "{0} Summ\u0101",
             "dxPivotGrid-fieldChooserTitle": "Lauka izv\u0113le",
@@ -234,11 +252,17 @@
             "dxPivotGrid-dataFieldArea": "Nomest Datu Laukus \u0160eit",
             "dxPivotGrid-rowFieldArea": "Nomest Rindu Laukus \u0160eit",
             "dxPivotGrid-filterFieldArea": "Nomest Filtra Laukus \u0160eit",
+            "dxScheduler-ariaLabel": "Scheduler. {0} view",
+            "dxScheduler-appointmentAriaLabel-group": "Group: {0}",
+            "dxScheduler-appointmentAriaLabel-recurring": "Recurring appointment",
+            "dxScheduler-appointmentListAriaLabel": "Appointment list",
             "dxScheduler-editorLabelTitle": "Nosaukums",
             "dxScheduler-editorLabelStartDate": "S\u0101kuma Datums",
             "dxScheduler-editorLabelEndDate": "Beigu Datums",
             "dxScheduler-editorLabelDescription": "Apraksts",
             "dxScheduler-editorLabelRecurrence": "Atk\u0101rtot",
+            "dxScheduler-navigationPrevious": "Previous page",
+            "dxScheduler-navigationNext": "Next page",
             "dxScheduler-openAppointment": "Atv\u0113rt apmekl\u0113jumu",
             "dxScheduler-recurrenceNever": "Nekad",
             "dxScheduler-recurrenceMinutely": "Katru min\u016bti",
@@ -270,6 +294,7 @@
             "dxScheduler-recurrenceRepeatOnDate": "datum\u0101",
             "dxScheduler-recurrenceRepeatCount": "atk\u0101rto\u0161an\u0101(s)",
             "dxScheduler-allDay": "Visa diena",
+            "dxScheduler-ariaEditForm": "Edit form",
             "dxScheduler-confirmRecurrenceEditTitle": "Edit Recurring Appointment",
             "dxScheduler-confirmRecurrenceDeleteTitle": "Delete Recurring Appointment",
             "dxScheduler-confirmRecurrenceEditMessage": "Vai v\u0113laties atk\u0101rtot \u0161o apmekl\u0113jumu vai visu apmekl\u0113jumu sec\u012bbu?",
@@ -299,7 +324,24 @@
             "dxCalendar-captionDecadeLabel": "Decade selection",
             "dxCalendar-captionCenturyLabel": "Century selection",
             "dxCalendar-selectedDate": "The selected date is {0}",
+            "dxCalendar-selectedDates": "The selected dates",
             "dxCalendar-selectedDateRange": "The selected date range is from {0} to {1}",
+            "dxCalendar-selectedMultipleDateRange": "from {0} to {1}",
+            "dxCalendar-selectedDateRangeCount": "There are {0} selected date ranges",
+            "dxCalendar-readOnlyLabel": "Read-only calendar",
+            "dxAvatar-defaultImageAlt": "Avatar",
+            "dxChat-elementAriaLabel": "Chat",
+            "dxChat-textareaPlaceholder": "Type a message",
+            "dxChat-sendButtonAriaLabel": "Send",
+            "dxChat-defaultUserName": "Unknown User",
+            "dxChat-messageListAriaLabel": "Message list",
+            "dxChat-alertListAriaLabel": "Error list",
+            "dxChat-emptyListMessage": "There are no messages in this chat",
+            "dxChat-emptyListPrompt": "Write your first message",
+            "dxChat-typingMessageSingleUser": "{0} is typing...",
+            "dxChat-typingMessageTwoUsers": "{0} and {1} are typing...",
+            "dxChat-typingMessageThreeUsers": "{0}, {1} and {2} are typing...",
+            "dxChat-typingMessageMultipleUsers": "{0} and others are typing...",
             "dxColorView-ariaRed": "Sarkans",
             "dxColorView-ariaGreen": "Za\u013c\u0161",
             "dxColorView-ariaBlue": "Zils",
@@ -334,6 +376,15 @@
             "dxFilterBuilder-filterOperationBetween": "Ir starp",
             "dxFilterBuilder-filterOperationAnyOf": "Ir viens no",
             "dxFilterBuilder-filterOperationNoneOf": "Nav neviens no",
+            "dxFilterBuilder-filterAriaRootElement": "Filter builder",
+            "dxFilterBuilder-filterAriaGroupLevel": "Level {0}",
+            "dxFilterBuilder-filterAriaGroupItem": "Group item",
+            "dxFilterBuilder-filterAriaOperationButton": "Operation",
+            "dxFilterBuilder-filterAriaAddButton": "Add",
+            "dxFilterBuilder-filterAriaRemoveButton": "Remove {0}",
+            "dxFilterBuilder-filterAriaItemField": "Item field",
+            "dxFilterBuilder-filterAriaItemOperation": "Item operation",
+            "dxFilterBuilder-filterAriaItemValue": "Item value",
             "dxHtmlEditor-dialogColorCaption": "Nomain\u012bt Fonta Kr\u0101su",
             "dxHtmlEditor-dialogBackgroundCaption": "Nomain\u012bt Fona Kr\u0101su",
             "dxHtmlEditor-dialogLinkCaption": "Pievienot saiti",

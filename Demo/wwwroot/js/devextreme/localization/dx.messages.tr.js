@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.tr.js)
-* Version: 24.1.6
-* Build date: Sat Sep 14 2024
+* Version: 24.2.3
+* Build date: Fri Dec 06 2024
 *
 * Copyright (c) 2012 - 2024 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -11,10 +11,10 @@
 ! function(root, factory) {
     if ("function" === typeof define && define.amd) {
         define((function(require) {
-            factory(require("devextreme/localization"))
+            factory(require("devextreme/common/core/localization"))
         }))
     } else if ("object" === typeof module && module.exports) {
-        factory(require("devextreme/localization"))
+        factory(require("devextreme/common/core/localization"))
     } else {
         factory(DevExpress.localization)
     }
@@ -24,6 +24,7 @@
             Yes: "Evet",
             No: "Hay\u0131r",
             Cancel: "\u0130ptal",
+            CheckState: "Check state",
             Close: "Kapat",
             Clear: "Temizle",
             Done: "Tamam",
@@ -32,6 +33,8 @@
             Search: "Ara",
             Back: "Geri",
             OK: "Tamam",
+            Today: "Bug\xfcn",
+            Yesterday: "Yesterday",
             "dxCollectionWidget-noDataText": "G\xf6sterilecek bilgi yok",
             "dxDropDownEditor-selectLabel": "Select",
             "validation-required": "Zorunlu",
@@ -64,6 +67,9 @@
             "dxList-listAriaLabel-deletable": "Deletable items",
             "dxListEditDecorator-delete": "Sil",
             "dxListEditDecorator-more": "Daha",
+            "dxList-selectAll-indeterminate": "Half-checked",
+            "dxList-selectAll-checked": "Checked",
+            "dxList-selectAll-notChecked": "Not checked",
             "dxScrollView-pullingDownText": "Yenilemek i\xe7in a\u015fa\u011f\u0131ya \xe7ekin...",
             "dxScrollView-pulledDownText": "Yenilemek i\xe7in b\u0131rak\u0131n...",
             "dxScrollView-refreshingText": "Yenileniyor...",
@@ -159,10 +165,11 @@
             "dxDataGrid-summarySum": "Top: {0}",
             "dxDataGrid-summarySumOtherColumn": "{1} toplam\u0131: {0}",
             "dxDataGrid-summaryCount": "Toplam: {0}",
-            "dxDataGrid-columnFixingFix": "Sabitle",
-            "dxDataGrid-columnFixingUnfix": "\xc7\xf6z",
-            "dxDataGrid-columnFixingLeftPosition": "Sola",
-            "dxDataGrid-columnFixingRightPosition": "Sa\u011fa",
+            "dxDataGrid-columnFixingFix": "Set Fixed Position",
+            "dxDataGrid-columnFixingUnfix": "Unfix",
+            "dxDataGrid-columnFixingLeftPosition": "Left",
+            "dxDataGrid-columnFixingRightPosition": "Right",
+            "dxDataGrid-columnFixingStickyPosition": "Sticky",
             "dxDataGrid-exportTo": "D\u0131\u015fa aktar",
             "dxDataGrid-exportToExcel": "Excel dosyas\u0131na aktar",
             "dxDataGrid-exporting": "D\u0131\u015fa Aktar...",
@@ -202,6 +209,7 @@
             "dxDataGrid-filterPanelFilterEnabledHint": "Filtreyi etkinle\u015ftir",
             "dxDataGrid-masterDetail": "Cell with details",
             "dxTreeList-ariaTreeList": "Tree list with {0} rows and {1} columns",
+            "dxTreeList-ariaExpandableInstruction": "Press Ctrl + right arrow to expand the focused node and Ctrl + left arrow to collapse it",
             "dxTreeList-ariaSearchInGrid": "Search in the tree list",
             "dxTreeList-ariaToolbar": "Tree list toolbar",
             "dxTreeList-editingAddRowToNode": "Ekle",
@@ -210,11 +218,21 @@
             "dxPager-pageSize": "Items per page: {0}",
             "dxPager-pageSizesAllText": "T\xfcm\xfc",
             "dxPager-page": "Page {0}",
-            "dxPager-prevPage": "Previous Page",
-            "dxPager-nextPage": "Next Page",
-            "dxPager-ariaLabel": "Page Navigation",
+            "dxPager-prevPage": "Previous page",
+            "dxPager-nextPage": "Next page",
+            "dxPager-ariaLabel": "Page navigation",
             "dxPager-ariaPageSize": "Page size",
             "dxPager-ariaPageNumber": "Page number",
+            "dxPagination-infoText": "Sayfa {0} / {1} ({2} veri)",
+            "dxPagination-pagesCountText": "aras\u0131nda",
+            "dxPagination-pageSize": "Items per page: {0}",
+            "dxPagination-pageSizesAllText": "T\xfcm\xfc",
+            "dxPagination-page": "Page {0}",
+            "dxPagination-prevPage": "Previous page",
+            "dxPagination-nextPage": "Next page",
+            "dxPagination-ariaLabel": "Page navigation",
+            "dxPagination-ariaPageSize": "Page size",
+            "dxPagination-ariaPageNumber": "Page number",
             "dxPivotGrid-grandTotal": "Genel Toplam",
             "dxPivotGrid-total": "{0} Toplam",
             "dxPivotGrid-fieldChooserTitle": "Alan Se\xe7ici",
@@ -234,11 +252,17 @@
             "dxPivotGrid-dataFieldArea": "Veri Alanlar\u0131n\u0131 Buraya B\u0131rak",
             "dxPivotGrid-rowFieldArea": "Sat\u0131r Alanlar\u0131n\u0131 Buraya B\u0131rak",
             "dxPivotGrid-filterFieldArea": "Filtre Alanlar\u0131n\u0131 Buraya B\u0131rak",
+            "dxScheduler-ariaLabel": "Scheduler. {0} view",
+            "dxScheduler-appointmentAriaLabel-group": "Group: {0}",
+            "dxScheduler-appointmentAriaLabel-recurring": "Recurring appointment",
+            "dxScheduler-appointmentListAriaLabel": "Appointment list",
             "dxScheduler-editorLabelTitle": "Konu",
             "dxScheduler-editorLabelStartDate": "Ba\u015flang\u0131\xe7 Tarihi",
             "dxScheduler-editorLabelEndDate": "Biti\u015f Tarihi",
             "dxScheduler-editorLabelDescription": "A\xe7\u0131klama",
             "dxScheduler-editorLabelRecurrence": "Tekrar",
+            "dxScheduler-navigationPrevious": "Previous page",
+            "dxScheduler-navigationNext": "Next page",
             "dxScheduler-openAppointment": "Randevu A\xe7",
             "dxScheduler-recurrenceNever": "Asla",
             "dxScheduler-recurrenceMinutely": "Minutely",
@@ -270,6 +294,7 @@
             "dxScheduler-recurrenceRepeatOnDate": "tarihinde",
             "dxScheduler-recurrenceRepeatCount": "olaylar",
             "dxScheduler-allDay": "T\xfcm g\xfcn",
+            "dxScheduler-ariaEditForm": "Edit form",
             "dxScheduler-confirmRecurrenceEditTitle": "Edit Recurring Appointment",
             "dxScheduler-confirmRecurrenceDeleteTitle": "Delete Recurring Appointment",
             "dxScheduler-confirmRecurrenceEditMessage": "Yaln\u0131zca bu randevuyu veya t\xfcm diziyi d\xfczenlemek ister misiniz?",
@@ -299,7 +324,24 @@
             "dxCalendar-captionDecadeLabel": "Decade selection",
             "dxCalendar-captionCenturyLabel": "Century selection",
             "dxCalendar-selectedDate": "The selected date is {0}",
+            "dxCalendar-selectedDates": "The selected dates",
             "dxCalendar-selectedDateRange": "The selected date range is from {0} to {1}",
+            "dxCalendar-selectedMultipleDateRange": "from {0} to {1}",
+            "dxCalendar-selectedDateRangeCount": "There are {0} selected date ranges",
+            "dxCalendar-readOnlyLabel": "Read-only calendar",
+            "dxAvatar-defaultImageAlt": "Avatar",
+            "dxChat-elementAriaLabel": "Chat",
+            "dxChat-textareaPlaceholder": "Type a message",
+            "dxChat-sendButtonAriaLabel": "Send",
+            "dxChat-defaultUserName": "Unknown User",
+            "dxChat-messageListAriaLabel": "Message list",
+            "dxChat-alertListAriaLabel": "Error list",
+            "dxChat-emptyListMessage": "There are no messages in this chat",
+            "dxChat-emptyListPrompt": "Write your first message",
+            "dxChat-typingMessageSingleUser": "{0} is typing...",
+            "dxChat-typingMessageTwoUsers": "{0} and {1} are typing...",
+            "dxChat-typingMessageThreeUsers": "{0}, {1} and {2} are typing...",
+            "dxChat-typingMessageMultipleUsers": "{0} and others are typing...",
             "dxColorView-ariaRed": "K\u0131rm\u0131z\u0131",
             "dxColorView-ariaGreen": "Ye\u015fil",
             "dxColorView-ariaBlue": "Mavi",
@@ -334,6 +376,15 @@
             "dxFilterBuilder-filterOperationBetween": "Aras\u0131nda",
             "dxFilterBuilder-filterOperationAnyOf": "Herhangi biri",
             "dxFilterBuilder-filterOperationNoneOf": "Hi\xe7biri",
+            "dxFilterBuilder-filterAriaRootElement": "Filter builder",
+            "dxFilterBuilder-filterAriaGroupLevel": "Level {0}",
+            "dxFilterBuilder-filterAriaGroupItem": "Group item",
+            "dxFilterBuilder-filterAriaOperationButton": "Operation",
+            "dxFilterBuilder-filterAriaAddButton": "Add",
+            "dxFilterBuilder-filterAriaRemoveButton": "Remove {0}",
+            "dxFilterBuilder-filterAriaItemField": "Item field",
+            "dxFilterBuilder-filterAriaItemOperation": "Item operation",
+            "dxFilterBuilder-filterAriaItemValue": "Item value",
             "dxHtmlEditor-dialogColorCaption": "Yaz\u0131 Tipi Rengini De\u011fi\u015ftir",
             "dxHtmlEditor-dialogBackgroundCaption": "Arka Plan Rengini De\u011fi\u015ftir",
             "dxHtmlEditor-dialogLinkCaption": "Link Ekle",

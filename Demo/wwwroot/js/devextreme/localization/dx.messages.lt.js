@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.lt.js)
-* Version: 24.1.6
-* Build date: Sat Sep 14 2024
+* Version: 24.2.3
+* Build date: Fri Dec 06 2024
 *
 * Copyright (c) 2012 - 2024 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -11,10 +11,10 @@
 ! function(root, factory) {
     if ("function" === typeof define && define.amd) {
         define((function(require) {
-            factory(require("devextreme/localization"))
+            factory(require("devextreme/common/core/localization"))
         }))
     } else if ("object" === typeof module && module.exports) {
-        factory(require("devextreme/localization"))
+        factory(require("devextreme/common/core/localization"))
     } else {
         factory(DevExpress.localization)
     }
@@ -24,6 +24,7 @@
             Yes: "Taip",
             No: "Ne",
             Cancel: "At\u0161aukti",
+            CheckState: "Check state",
             Close: "Close",
             Clear: "I\u0161valyti",
             Done: "Atlikta",
@@ -32,6 +33,8 @@
             Search: "Paie\u0161ka",
             Back: "Atgal",
             OK: "Gerai",
+            Today: "\u0160iandien",
+            Yesterday: "Yesterday",
             "dxCollectionWidget-noDataText": "N\u0117ra duomen\u0173",
             "dxDropDownEditor-selectLabel": "Pasirinkti",
             "validation-required": "Privalomas",
@@ -64,6 +67,9 @@
             "dxList-listAriaLabel-deletable": "Deletable items",
             "dxListEditDecorator-delete": "I\u0161trinti",
             "dxListEditDecorator-more": "Daugiau",
+            "dxList-selectAll-indeterminate": "Half-checked",
+            "dxList-selectAll-checked": "Checked",
+            "dxList-selectAll-notChecked": "Not checked",
             "dxScrollView-pullingDownText": "Patraukite \u017eemyn, kad atnaujintum\u0117te...",
             "dxScrollView-pulledDownText": "Atleiskite, kad atnaujintum\u0117te...",
             "dxScrollView-refreshingText": "Atnaujinama...",
@@ -159,10 +165,11 @@
             "dxDataGrid-summarySum": "Suma: {0}",
             "dxDataGrid-summarySumOtherColumn": "Suma i\u0161 {1} yra {0}",
             "dxDataGrid-summaryCount": "Sk: {0}",
-            "dxDataGrid-columnFixingFix": "Fiksuoti",
-            "dxDataGrid-columnFixingUnfix": "Atlaisvinti",
-            "dxDataGrid-columnFixingLeftPosition": "\u012e kair\u0119",
-            "dxDataGrid-columnFixingRightPosition": "\u012e de\u0161in\u0119",
+            "dxDataGrid-columnFixingFix": "Set Fixed Position",
+            "dxDataGrid-columnFixingUnfix": "Unfix",
+            "dxDataGrid-columnFixingLeftPosition": "Left",
+            "dxDataGrid-columnFixingRightPosition": "Right",
+            "dxDataGrid-columnFixingStickyPosition": "Sticky",
             "dxDataGrid-exportTo": "Eksportuoti",
             "dxDataGrid-exportToExcel": "Eksportuoti \u012f Excel",
             "dxDataGrid-exporting": "Eksportuojama...",
@@ -202,6 +209,7 @@
             "dxDataGrid-filterPanelFilterEnabledHint": "Aktyvuoti filtr\u0105",
             "dxDataGrid-masterDetail": "Cell with details",
             "dxTreeList-ariaTreeList": "Tree list with {0} rows and {1} columns",
+            "dxTreeList-ariaExpandableInstruction": "Press Ctrl + right arrow to expand the focused node and Ctrl + left arrow to collapse it",
             "dxTreeList-ariaSearchInGrid": "Ie\u0161koti duomen\u0173 medyje",
             "dxTreeList-ariaToolbar": "Duomen\u0173 med\u017eio \u012franki\u0173 juosta",
             "dxTreeList-editingAddRowToNode": "Prid\u0117ti",
@@ -210,11 +218,21 @@
             "dxPager-pageSize": "Items per page: {0}",
             "dxPager-pageSizesAllText": "Viskas",
             "dxPager-page": "Page {0}",
-            "dxPager-prevPage": "Previous Page",
-            "dxPager-nextPage": "Next Page",
-            "dxPager-ariaLabel": "Page Navigation",
+            "dxPager-prevPage": "Previous page",
+            "dxPager-nextPage": "Next page",
+            "dxPager-ariaLabel": "Page navigation",
             "dxPager-ariaPageSize": "Page size",
             "dxPager-ariaPageNumber": "Page number",
+            "dxPagination-infoText": "Puslapis {0} i\u0161 {1} (Viso eilu\u010di\u0173: {2})",
+            "dxPagination-pagesCountText": "i\u0161",
+            "dxPagination-pageSize": "Items per page: {0}",
+            "dxPagination-pageSizesAllText": "Viskas",
+            "dxPagination-page": "Page {0}",
+            "dxPagination-prevPage": "Previous page",
+            "dxPagination-nextPage": "Next page",
+            "dxPagination-ariaLabel": "Page navigation",
+            "dxPagination-ariaPageSize": "Page size",
+            "dxPagination-ariaPageNumber": "Page number",
             "dxPivotGrid-grandTotal": "I\u0161 viso",
             "dxPivotGrid-total": "{0} Viso",
             "dxPivotGrid-fieldChooserTitle": "Stulpeli\u0173 pasirinkimas",
@@ -234,11 +252,17 @@
             "dxPivotGrid-dataFieldArea": "Numeskite duomen\u0173 laukus \u010dia",
             "dxPivotGrid-rowFieldArea": "Numeskite eilu\u010di\u0173 laukus \u010dia",
             "dxPivotGrid-filterFieldArea": "Numeskite filtr\u0173 laukus \u010dia",
+            "dxScheduler-ariaLabel": "Scheduler. {0} view",
+            "dxScheduler-appointmentAriaLabel-group": "Group: {0}",
+            "dxScheduler-appointmentAriaLabel-recurring": "Recurring appointment",
+            "dxScheduler-appointmentListAriaLabel": "Appointment list",
             "dxScheduler-editorLabelTitle": "Tema",
             "dxScheduler-editorLabelStartDate": "Prad\u017eios data",
             "dxScheduler-editorLabelEndDate": "Pabaigos data",
             "dxScheduler-editorLabelDescription": "Apra\u0161ymas",
             "dxScheduler-editorLabelRecurrence": "Kartojimas",
+            "dxScheduler-navigationPrevious": "Previous page",
+            "dxScheduler-navigationNext": "Next page",
             "dxScheduler-openAppointment": "Atidaryti paskyrim\u0105",
             "dxScheduler-recurrenceNever": "Niekada",
             "dxScheduler-recurrenceMinutely": "Kas minut\u0119",
@@ -270,6 +294,7 @@
             "dxScheduler-recurrenceRepeatOnDate": "iki datos",
             "dxScheduler-recurrenceRepeatCount": "kart\u0105(us)",
             "dxScheduler-allDay": "Visa diena",
+            "dxScheduler-ariaEditForm": "Edit form",
             "dxScheduler-confirmRecurrenceEditTitle": "Edit Recurring Appointment",
             "dxScheduler-confirmRecurrenceDeleteTitle": "Delete Recurring Appointment",
             "dxScheduler-confirmRecurrenceEditMessage": "Norite redaguoti tik \u0161\u012f paskyrim\u0105 ar vis\u0105 serij\u0105?",
@@ -299,7 +324,24 @@
             "dxCalendar-captionDecadeLabel": "Decade selection",
             "dxCalendar-captionCenturyLabel": "Century selection",
             "dxCalendar-selectedDate": "The selected date is {0}",
+            "dxCalendar-selectedDates": "The selected dates",
             "dxCalendar-selectedDateRange": "The selected date range is from {0} to {1}",
+            "dxCalendar-selectedMultipleDateRange": "from {0} to {1}",
+            "dxCalendar-selectedDateRangeCount": "There are {0} selected date ranges",
+            "dxCalendar-readOnlyLabel": "Read-only calendar",
+            "dxAvatar-defaultImageAlt": "Avatar",
+            "dxChat-elementAriaLabel": "Chat",
+            "dxChat-textareaPlaceholder": "Type a message",
+            "dxChat-sendButtonAriaLabel": "Send",
+            "dxChat-defaultUserName": "Unknown User",
+            "dxChat-messageListAriaLabel": "Message list",
+            "dxChat-alertListAriaLabel": "Error list",
+            "dxChat-emptyListMessage": "There are no messages in this chat",
+            "dxChat-emptyListPrompt": "Write your first message",
+            "dxChat-typingMessageSingleUser": "{0} is typing...",
+            "dxChat-typingMessageTwoUsers": "{0} and {1} are typing...",
+            "dxChat-typingMessageThreeUsers": "{0}, {1} and {2} are typing...",
+            "dxChat-typingMessageMultipleUsers": "{0} and others are typing...",
             "dxColorView-ariaRed": "Raudona",
             "dxColorView-ariaGreen": "\u017dalia",
             "dxColorView-ariaBlue": "M\u0117lyna",
@@ -334,6 +376,15 @@
             "dxFilterBuilder-filterOperationBetween": "Intervale",
             "dxFilterBuilder-filterOperationAnyOf": "Kuris nors i\u0161",
             "dxFilterBuilder-filterOperationNoneOf": "N\u0117 vienas i\u0161",
+            "dxFilterBuilder-filterAriaRootElement": "Filter builder",
+            "dxFilterBuilder-filterAriaGroupLevel": "Level {0}",
+            "dxFilterBuilder-filterAriaGroupItem": "Group item",
+            "dxFilterBuilder-filterAriaOperationButton": "Operation",
+            "dxFilterBuilder-filterAriaAddButton": "Add",
+            "dxFilterBuilder-filterAriaRemoveButton": "Remove {0}",
+            "dxFilterBuilder-filterAriaItemField": "Item field",
+            "dxFilterBuilder-filterAriaItemOperation": "Item operation",
+            "dxFilterBuilder-filterAriaItemValue": "Item value",
             "dxHtmlEditor-dialogColorCaption": "Pakeisti \u0161rifto spalv\u0105",
             "dxHtmlEditor-dialogBackgroundCaption": "Pakeisti fono spalv\u0105",
             "dxHtmlEditor-dialogLinkCaption": "Prid\u0117ti nuorod\u0105",

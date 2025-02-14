@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.it.js)
-* Version: 24.1.6
-* Build date: Sat Sep 14 2024
+* Version: 24.2.3
+* Build date: Fri Dec 06 2024
 *
 * Copyright (c) 2012 - 2024 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -11,10 +11,10 @@
 ! function(root, factory) {
     if ("function" === typeof define && define.amd) {
         define((function(require) {
-            factory(require("devextreme/localization"))
+            factory(require("devextreme/common/core/localization"))
         }))
     } else if ("object" === typeof module && module.exports) {
-        factory(require("devextreme/localization"))
+        factory(require("devextreme/common/core/localization"))
     } else {
         factory(DevExpress.localization)
     }
@@ -24,6 +24,7 @@
             Yes: "S\xec",
             No: "No",
             Cancel: "Annulla",
+            CheckState: "Check state",
             Close: "Chiudi",
             Clear: "Cancella",
             Done: "Fatto",
@@ -32,6 +33,8 @@
             Search: "Cerca",
             Back: "Indietro",
             OK: "OK",
+            Today: "Oggi",
+            Yesterday: "Yesterday",
             "dxCollectionWidget-noDataText": "Nessun dato da mostrare",
             "dxDropDownEditor-selectLabel": "Seleziona",
             "validation-required": "Richiesto",
@@ -64,6 +67,9 @@
             "dxList-listAriaLabel-deletable": "Deletable items",
             "dxListEditDecorator-delete": "Elimina",
             "dxListEditDecorator-more": "Ancora",
+            "dxList-selectAll-indeterminate": "Half-checked",
+            "dxList-selectAll-checked": "Checked",
+            "dxList-selectAll-notChecked": "Not checked",
             "dxScrollView-pullingDownText": "Trascina in basso per aggiornare...",
             "dxScrollView-pulledDownText": "Rilascia per aggiornare...",
             "dxScrollView-refreshingText": "Aggiornamento...",
@@ -159,10 +165,11 @@
             "dxDataGrid-summarySum": "Somma: {0}",
             "dxDataGrid-summarySumOtherColumn": "Somma di {1} \xe8 {0}",
             "dxDataGrid-summaryCount": "Conteggio: {0}",
-            "dxDataGrid-columnFixingFix": "Blocca",
-            "dxDataGrid-columnFixingUnfix": "Sblocca",
-            "dxDataGrid-columnFixingLeftPosition": "Alla sinistra",
-            "dxDataGrid-columnFixingRightPosition": "Alla destra",
+            "dxDataGrid-columnFixingFix": "Set Fixed Position",
+            "dxDataGrid-columnFixingUnfix": "Unfix",
+            "dxDataGrid-columnFixingLeftPosition": "Left",
+            "dxDataGrid-columnFixingRightPosition": "Right",
+            "dxDataGrid-columnFixingStickyPosition": "Sticky",
             "dxDataGrid-exportTo": "Esporta",
             "dxDataGrid-exportToExcel": "Esporta in Excel",
             "dxDataGrid-exporting": "Esportazione...",
@@ -202,6 +209,7 @@
             "dxDataGrid-filterPanelFilterEnabledHint": "Attiva il filtro",
             "dxDataGrid-masterDetail": "Cell with details",
             "dxTreeList-ariaTreeList": "Tree list with {0} rows and {1} columns",
+            "dxTreeList-ariaExpandableInstruction": "Press Ctrl + right arrow to expand the focused node and Ctrl + left arrow to collapse it",
             "dxTreeList-ariaSearchInGrid": "Ricerca nell'albero",
             "dxTreeList-ariaToolbar": "Barra degli strumenti albero",
             "dxTreeList-editingAddRowToNode": "Aggiungi",
@@ -215,6 +223,16 @@
             "dxPager-ariaLabel": "Navigazione pagine",
             "dxPager-ariaPageSize": "Page size",
             "dxPager-ariaPageNumber": "Page number",
+            "dxPagination-infoText": "Pagina {0} di {1} ({2} elementi)",
+            "dxPagination-pagesCountText": "di",
+            "dxPagination-pageSize": "Items per page: {0}",
+            "dxPagination-pageSizesAllText": "Tutti",
+            "dxPagination-page": "Pagina {0}",
+            "dxPagination-prevPage": "Pagina precedente",
+            "dxPagination-nextPage": "Pagina successiva",
+            "dxPagination-ariaLabel": "Navigazione pagine",
+            "dxPagination-ariaPageSize": "Page size",
+            "dxPagination-ariaPageNumber": "Page number",
             "dxPivotGrid-grandTotal": "Totale",
             "dxPivotGrid-total": "{0} Totale",
             "dxPivotGrid-fieldChooserTitle": "Selezione campi",
@@ -234,11 +252,17 @@
             "dxPivotGrid-dataFieldArea": "Trascina qui i campi dati",
             "dxPivotGrid-rowFieldArea": "Trascina qui i campi riga",
             "dxPivotGrid-filterFieldArea": "Trascina qui i campi filtro",
+            "dxScheduler-ariaLabel": "Scheduler. {0} view",
+            "dxScheduler-appointmentAriaLabel-group": "Group: {0}",
+            "dxScheduler-appointmentAriaLabel-recurring": "Recurring appointment",
+            "dxScheduler-appointmentListAriaLabel": "Appointment list",
             "dxScheduler-editorLabelTitle": "Oggetto",
             "dxScheduler-editorLabelStartDate": "Data inizio",
             "dxScheduler-editorLabelEndDate": "Data fine",
             "dxScheduler-editorLabelDescription": "Descrizione",
             "dxScheduler-editorLabelRecurrence": "Ripeti",
+            "dxScheduler-navigationPrevious": "Previous page",
+            "dxScheduler-navigationNext": "Next page",
             "dxScheduler-openAppointment": "Apri appuntamento",
             "dxScheduler-recurrenceNever": "Mai",
             "dxScheduler-recurrenceMinutely": "Ogni minuto",
@@ -270,6 +294,7 @@
             "dxScheduler-recurrenceRepeatOnDate": "alla data",
             "dxScheduler-recurrenceRepeatCount": "occorrenza(e)",
             "dxScheduler-allDay": "Tutto il giorno",
+            "dxScheduler-ariaEditForm": "Edit form",
             "dxScheduler-confirmRecurrenceEditTitle": "Edit Recurring Appointment",
             "dxScheduler-confirmRecurrenceDeleteTitle": "Delete Recurring Appointment",
             "dxScheduler-confirmRecurrenceEditMessage": "Vuoi modificare solo questo appuntamento o tutte le sue ricorrenze?",
@@ -299,7 +324,24 @@
             "dxCalendar-captionDecadeLabel": "Decade selection",
             "dxCalendar-captionCenturyLabel": "Century selection",
             "dxCalendar-selectedDate": "The selected date is {0}",
+            "dxCalendar-selectedDates": "The selected dates",
             "dxCalendar-selectedDateRange": "The selected date range is from {0} to {1}",
+            "dxCalendar-selectedMultipleDateRange": "from {0} to {1}",
+            "dxCalendar-selectedDateRangeCount": "There are {0} selected date ranges",
+            "dxCalendar-readOnlyLabel": "Read-only calendar",
+            "dxAvatar-defaultImageAlt": "Avatar",
+            "dxChat-elementAriaLabel": "Chat",
+            "dxChat-textareaPlaceholder": "Type a message",
+            "dxChat-sendButtonAriaLabel": "Send",
+            "dxChat-defaultUserName": "Unknown User",
+            "dxChat-messageListAriaLabel": "Message list",
+            "dxChat-alertListAriaLabel": "Error list",
+            "dxChat-emptyListMessage": "There are no messages in this chat",
+            "dxChat-emptyListPrompt": "Write your first message",
+            "dxChat-typingMessageSingleUser": "{0} is typing...",
+            "dxChat-typingMessageTwoUsers": "{0} and {1} are typing...",
+            "dxChat-typingMessageThreeUsers": "{0}, {1} and {2} are typing...",
+            "dxChat-typingMessageMultipleUsers": "{0} and others are typing...",
             "dxColorView-ariaRed": "Rosso",
             "dxColorView-ariaGreen": "Verde",
             "dxColorView-ariaBlue": "Blu",
@@ -334,6 +376,15 @@
             "dxFilterBuilder-filterOperationBetween": "Compreso",
             "dxFilterBuilder-filterOperationAnyOf": "Include",
             "dxFilterBuilder-filterOperationNoneOf": "Non include",
+            "dxFilterBuilder-filterAriaRootElement": "Filter builder",
+            "dxFilterBuilder-filterAriaGroupLevel": "Level {0}",
+            "dxFilterBuilder-filterAriaGroupItem": "Group item",
+            "dxFilterBuilder-filterAriaOperationButton": "Operation",
+            "dxFilterBuilder-filterAriaAddButton": "Add",
+            "dxFilterBuilder-filterAriaRemoveButton": "Remove {0}",
+            "dxFilterBuilder-filterAriaItemField": "Item field",
+            "dxFilterBuilder-filterAriaItemOperation": "Item operation",
+            "dxFilterBuilder-filterAriaItemValue": "Item value",
             "dxHtmlEditor-dialogColorCaption": "Cambia il colore del testo",
             "dxHtmlEditor-dialogBackgroundCaption": "Cambia il colore di sfondo",
             "dxHtmlEditor-dialogLinkCaption": "Aggiungi Link",
