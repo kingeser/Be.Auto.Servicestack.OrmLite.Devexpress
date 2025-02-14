@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using DevExtreme.AspNet.Data.ResponseModel;
+﻿using DevExtreme.AspNet.Data.ResponseModel;
 using Newtonsoft.Json;
 // ReSharper disable all
 #pragma warning disable CS0108, CS0114
@@ -9,5 +8,6 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress;
 
 public class OrmLiteLoadResult<TEntity> : LoadResult where TEntity : class, new()
 {
+    [JsonIgnore]
     public IEnumerable<TEntity> Result => base.data.OfType<TEntity>();
 }

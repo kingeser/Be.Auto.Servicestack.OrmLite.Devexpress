@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Data;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
 using ServiceStack;
 using ServiceStack.OrmLite;
-using ServiceStack.OrmLite.Legacy;
-using ServiceStack.Script;
-using static ServiceStack.OrmLite.Dapper.SqlMapper;
 
 namespace Be.Auto.Servicestack.OrmLite.Devexpress
 {
@@ -40,7 +30,7 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
                 return new OrmLiteLoadResult<TEntity>()
                 {
                     totalCount = Convert.ToInt32(con.Count(sqlExpression)),
-                  
+
                 };
             }
 
@@ -129,7 +119,6 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
 
             }
 
-
             var count = con.RowCount(sqlExpression);
 
             if (loadOptionsBase.Skip > 0)
@@ -147,7 +136,7 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
                 {
                     data = loadResult.data,
                     totalCount = Convert.ToInt32(count)
-                  
+              
                 };
             }
             else
@@ -158,7 +147,7 @@ namespace Be.Auto.Servicestack.OrmLite.Devexpress
                 {
                     data = result,
                     totalCount = Convert.ToInt32(count)
-                   
+
                 };
             }
         }
