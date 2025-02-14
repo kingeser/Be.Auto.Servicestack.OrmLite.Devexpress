@@ -33,6 +33,11 @@
     .HeaderFilter(t=>t.Visible(true).AllowSelectAll(true).Search(s=>s.Enabled(true).Mode(CollectionSearchMode.Contains)))
     .ColumnAutoWidth(true)
     .ColumnHidingEnabled(true)
+    .AllowColumnReordering(true)
+    .FilterSyncEnabled(true)
+    .SyncLookupFilterValues(true)
+    .ColumnChooser(c=>c.Enabled(true).Search(t=>t.Enabled(true)).SortOrder(SortOrder.Asc).Mode(GridColumnChooserMode.Select))
+    .StateStoring(t=>t.Enabled(true).StorageKey("Employee_State").Type(StateStoringType.LocalStorage))
     .Columns(columns => {
         columns.AddFor(m => m.EmployeeID).Visible(false);
         columns.AddFor(m => m.LastName);
